@@ -26,7 +26,7 @@ var Todo = mongoose.model('Todo', {
 
 //  routes
 
-  //  api
+  //  api routes
   
     //  get all todos
     app.get('/api/todos', function(req, res) {
@@ -81,6 +81,12 @@ var Todo = mongoose.model('Todo', {
             }); //close Todo.find
         }); //close Todo.remove
     }); //close app.delete
+
+    // application routes
+
+    app.get('*', function(req, res){
+        res.sendfile('./public/index.html'); // load the view file (angular will handle front-end page changes)
+    });
 
 
 
